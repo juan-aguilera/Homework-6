@@ -1,76 +1,58 @@
 import pandas as pd
 import numpy as np 
 import matplotlib.pyplot as plt 
+import seaborn as sns
 import csv
+from scipy.stats import shapiro
 
-def read_csv(filename, encoding='utf-8'):
+def read_csv(filename : str, encoding='utf-8') -> list[list]:
     my_list = []
     with open(filename, encoding=encoding) as infile:
         data = csv.reader(infile, delimiter=',')
-        #tittle = next(data)[1]
+        tittle =  next(data)
         for row in data:
             my_list.append(row)
-        for row in my_list:
-            print(row)
-
-'''
-def read_xlsx():
-    df_dict = pd.read_excel('Environment_Social_and_Governance_(ESG)_Data final.xlsx', sheet_name=['Python Data'])
-    df = df_dict['Python Data']
-    col_list = df.columns
+    return my_list, tittle
+def data_dictionary(col_a : str, col_b: str , col_c: str, col_d : str, my_list: list[list], tittles: list[str]) -> dict:
+    index = [tittles.index(col_a)]
+    index.append(tittles.index(col_b))
+    index.append(tittles.index(col_c))
+    index.append(tittles.index(col_d))
     data_dict = {}
-    for i in range(len(col_list)):
-        data_dict[col_list[i]] = df[col_list[i]].tolist()
-
+    for i in index:
+            data_dict[tittles[i]] =[]
+    for i in index:
+         for j in range(len(my_list)):
+              if i == tittles.index(col_a):
+                data_dict[tittles[i]].append(my_list[j][i])
+              else:
+                data_dict[tittles[i]].append(float(my_list[j][i]))
     return data_dict
-def delete_nan_values(data_series):
-    data_dict = read_xlsx()
-    table = []
-    table.append(list(filter(lambda x: x != 'nan',data_dict['Region'])))
-    table.append(list(filter(lambda x: x != 'nan',data_dict['Time'])))
-    table.append(list(filter(lambda x: x != 'nan', data_dict['Country Name'])))
-    table.append(list(filter(lambda x: x != 'nan', data_dict[data_series])))
-    return table
-def delete_empty_values(data_series):
-    table = delete_nan_values(data_series)
-    for i in range(len(table)):
-        for j in range(len(table[i])):
-            if table[i][j] == '..':
-                table[i][j] = 0
-    return table
-
-def country_agrupation(data_series):
-    table = delete_empty_values(data_series)
-    countries_dict = {}
-    for i in range(len(table[2])):
-        if table[2][i] not in countries_dict.keys():
-            countries_dict[table[2][i]] = [table[0][i]]
-            countries_dict[table[2][i]].append(table[3][i])
-        else:
-            countries_dict[table[2][i]].append(table[3][i])
-    return countries_dict
-def mean_calculation_by_country(data_series):
-    country_dict = country_agrupation(data_series)
-    for key,value in country_dict.items():
-        country_dict[key].append(np.mean(list(filter(lambda x: x > 0, value[1:]))))
-        #last position of each value is the mean of eight years of data (excluding 0 because 0 represents no data in the source file)
-    return country_dict
-def region_agrupation(data_series):
-    countries_dict = mean_calculation_by_country(data_series)
-    regions_dict = {}
-    #regions dict creation
-    for key,value in countries_dict.items():
-        if value[0] not in regions_dict.keys():
-            regions_dict[value[0]] = [[],[],[],[],[]]
-    for key,value in countries_dict.items():
-        for i in range(5):
-            regions_dict[value[0]][i].append(value[i+1])
-    for key,value in regions_dict.items():
-        for i in range(len(value)):
-            regions_dict[key][i] = np.mean(list(filter(lambda x: x >0,value[i])))
-        #regions_dict[key] = np.mean(value)
-    return regions_dict
-
+def numeric_assignation(string_list:list[str]) -> dict :
+     numbers_assignation = {}
+     cnt = 1
+     for i in string_list:
+        if i not in numbers_assignation.keys():
+            numbers_assignation[i] = cnt
+            cnt += 1
+     return numbers_assignation 
+def string_to_number(data_dict, str_tittle, numbers_assignation : dict):
+     number_list = []
+     cnt = 0
+     for i in data_dict[str_tittle]:
+        data_dict[str_tittle][cnt] = numbers_assignation[i]
+        cnt +=1
+def plotting(data_list,data_name):
+    #sns.kdeplot(data=data_list)
+    sns.histplot(data_list, kde=True, stat="density", linewidth = 0,bins = 70)
+    plt.xlabel('value')
+    plt.ylabel('Frequency')
+    plt.title(data_name)
+    plt.show()
+def shapiro_test(data_list):
+    statistic, p = shapiro(data_list)
+    return statistic,p
+'''
 def plotting(regions_dict,tittle):
     plt.figure(figsize =(10,6))
 
@@ -88,21 +70,18 @@ def plotting(regions_dict,tittle):
     plt.show()
     return plt
 '''
-
+#sns.histplot(data_list, kde=True, stat="density", linewidth = 0, bins=2)
 
 
 if __name__ == "__main__":
 
-    print(read_csv('20000_sample.csv', encoding='utf-8'))
-    
-    '''
-    regions_dict_1 = region_agrupation('Economic and Social Rights Performance Score [SD.ESR.PERF.XQ]')
-    plotting(regions_dict_1, tittle = 'Economic and Social Rights Performance Score evolution (2014-2018) per Región (2014-2018)')
+    my_list, tittles = read_csv('20000_sample.csv')
+    data_dict = data_dictionary('transporter','customer_business_premises', 'total_items', 'service_value', my_list, tittles)
+    numbers_assignation = numeric_assignation(data_dict['transporter'])
+    string_to_number(data_dict,'transporter',numbers_assignation)
+    #plotting(data_dict['transporter'],'transporter')
+    #plotting(data_dict['customer_business_premises'],'customer_business_premises')
+    plotting(data_dict['total_items'],'total_items')
+    #plotting(data_dict['service_value'], 'service value')
+    #print(shapiro_test(data_dict['transporter']))
 
-    regions_dict_2 = region_agrupation('Access to electricity (% of population) [EG.ELC.ACCS.ZS]')
-    plotting(regions_dict_2, tittle = 'Access to electricity (% of population) evolution (2014-2018) per Región')
-
-    regions_dict_3 = region_agrupation('CO2 emissions (metric tons per capita) [EN.ATM.CO2E.PC]')
-    plotting(regions_dict_3, tittle = 'CO2 emissions (metric tons per capita) evolution (2014-2018) per Region')
-'''
-   
