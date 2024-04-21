@@ -44,8 +44,8 @@ transporter and their assistant, the quantity of items purchased in each order, 
 
 Analysis: 
 In the 200,000 records, approximately 9,500 different transporter names were identified. The purpose of this graph and the following two is to display the histogram and to infer what type 
-of distribution my classmate used to generate the data. In this case, it can be concluded that the data follows a normal distribution with a mean around zero
-
+of distribution my classmate used to generate the data. In this case, it can be concluded that the data follows a normal distribution with a mean around zero.
+A distribution of this type can be interpreted as indicating that there is a set of suppliers that are more preferred by local supermarkets for placing their orders, either due to proximity or quality.
 
 ### Graph 2: Quantity of items purchased in each order
 ![Total items ](https://github.com/juan-aguilera/Homework-6/assets/158538464/3cfcf99f-c87a-424f-801b-f56b43931a0b)
@@ -55,12 +55,12 @@ Analysis:
 The histogram representing the quantity of items purchased in each order appears to have a very random behavior. The distribution suggests that the data could have been generated randomly
 
 
-### Graph 3: CO2 emissions (metric tons per capita) evolution (2014-2018) per Region
+### Graph 3: Delivery fee
 ![Service value](https://github.com/juan-aguilera/Homework-6/assets/158538464/30f3a5e6-38be-4675-8556-721540759ea6)
-Analysis: A downward trend in CO2 emissions per capita is observed in most regions, suggesting progress in mitigating climate change. However, it is important to analyze the relationship 
-that this graph has with the previous ones. The regions with a better indicator of economic and social rights are the ones that generate more emissions. Additionally, 
-despite regions like Latin America and the Caribbean having a high score and also a high electrification percentage, their emissions are very low compared to North America 
-and the Middle East. This could indicate that their energy matrices are cleaner and their economies are not largely based on extractivism
+
+Analysis: 
+
+Before generating the histogram, I assumed that the distribution of the data representing the delivery cost would also be uniform, considering that the delivery cost depends on both the quantity of items and the distance. However, upon generating the graph, the distribution appears to be positively skewed, indicating that this cost is not entirely related to the quantity of items but rather to the distance. Additionally, it can be observed that the majority of deliveries are relatively short distances, with only a few exceeding the mean by a large margin.
 
 For more details about the project and its execution, please refer to the README.md file in the GitHub repository.
 
