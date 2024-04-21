@@ -43,6 +43,7 @@ transporter and their assistant, the quantity of items purchased in each order, 
 ![Transporter](https://github.com/juan-aguilera/Homework-6/assets/158538464/e1b46106-a33f-4ced-9d27-efc95e8d3332)
 
 Analysis: 
+
 In the 200,000 records, approximately 9,500 different transporter names were identified. The purpose of this graph and the following two is to display the histogram and to infer what type 
 of distribution my classmate used to generate the data. In this case, it can be concluded that the data follows a normal distribution with a mean around zero.
 A distribution of this type can be interpreted as indicating that there is a set of suppliers that are more preferred by local supermarkets for placing their orders, either due to proximity or quality.
