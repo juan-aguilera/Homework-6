@@ -41,12 +41,12 @@ transporter and their assistant, the quantity of items purchased in each order, 
 ## **Generated Graphs**
 ### Graph 1: Transporter names 
 ![Transporter](https://github.com/juan-aguilera/Homework-6/assets/158538464/e1b46106-a33f-4ced-9d27-efc95e8d3332)
-Analysis: "the dataset measures how effectively countries use their economic resources to ensure the fulfillment of five economic and 
-social rights—the rights to education, food, health, housing and work. The data was hard to collect, the HRMI team at the  University of Georgia’s
-GLOBIS Center therefore used a Bayesian latent variable model to estimate a full set of country scores". (https://esgdata.worldbank.org/)
-The graph shows a large gap between regions like Europe/North America and Central Africa, Southern Africa, and Southern Asia. According to the narrative we have 
-always heard about these regions, one might think that deficiencies mainly arise in their healthcare, education, and food production and distribution systems. 
-Although an upward trend is observed in these regions, it is difficult to imagine a short-term scenario (5 years) in which they reach levels similar to those of Europe and North America.
+Analysis: 
+
+In the 200,000 records, approximately 9,500 different transporter names were identified. The purpose of this graph and the following two is to display the histogram and to infer what type 
+of distribution my classmate used to generate the data. In this case, it can be concluded that the data follows a normal distribution with a mean around zero
+
+
 
 
 Analysis: Significant variation in the performance of economic and social rights is observed among different regions.
