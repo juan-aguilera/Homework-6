@@ -49,10 +49,11 @@ of distribution my classmate used to generate the data. In this case, it can be 
 
 ### Graph 2: Quantity of items purchased in each order
 ![Total items ](https://github.com/juan-aguilera/Homework-6/assets/158538464/3cfcf99f-c87a-424f-801b-f56b43931a0b)
-Analysis: Most countries have high levels of access to electricity, with some exceptions in specific regions. Just like in the previous graph, the most lagging region is 
-Central and Southern Africa. Unlike the previous graph, the other regions have very high levels of electrification and are very close to each other on the graph, thus 
-representing homogeneity in the data but leaving out the aforementioned region. Despite having a great natural resource for energy generation such as the sun, Central 
-and Southern Africa remains a territory that requires large amounts of investment in various fronts.
+
+Analysis: 
+
+The histogram representing the quantity of items purchased in each order appears to have a very random behavior. The distribution suggests that the data could have been generated randomly
+
 
 ### Graph 3: CO2 emissions (metric tons per capita) evolution (2014-2018) per Region
 ![Service value](https://github.com/juan-aguilera/Homework-6/assets/158538464/30f3a5e6-38be-4675-8556-721540759ea6)
