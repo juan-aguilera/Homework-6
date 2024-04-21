@@ -41,17 +41,13 @@ transporter and their assistant, the quantity of items purchased in each order, 
 ## **Generated Graphs**
 ### Graph 1: Transporter names 
 ![Transporter](https://github.com/juan-aguilera/Homework-6/assets/158538464/e1b46106-a33f-4ced-9d27-efc95e8d3332)
-Analysis: 
 
+Analysis: 
 In the 200,000 records, approximately 9,500 different transporter names were identified. The purpose of this graph and the following two is to display the histogram and to infer what type 
 of distribution my classmate used to generate the data. In this case, it can be concluded that the data follows a normal distribution with a mean around zero
 
 
-
-
-Analysis: Significant variation in the performance of economic and social rights is observed among different regions.
-
-### Graph 2: Access to electricity (% of population) evolution (2014-2018) per Región
+### Graph 2: Quantity of items purchased in each order
 ![Total items ](https://github.com/juan-aguilera/Homework-6/assets/158538464/3cfcf99f-c87a-424f-801b-f56b43931a0b)
 Analysis: Most countries have high levels of access to electricity, with some exceptions in specific regions. Just like in the previous graph, the most lagging region is 
 Central and Southern Africa. Unlike the previous graph, the other regions have very high levels of electrification and are very close to each other on the graph, thus 
